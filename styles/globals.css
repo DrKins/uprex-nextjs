@@ -11,6 +11,7 @@ body {
     background: linear-gradient(180deg, #4895EF 0%, rgba(114, 9, 183, 0.9) 100%);
     color:#FBEBF2;
     text-align: center;
+    font-size: 14px;
 }
 
 * {
