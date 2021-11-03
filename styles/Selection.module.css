@@ -1,0 +1,68 @@
+
+.InfoContainer{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    user-select: none;
+}
+.Ball{
+    width: 2.5em;
+    height: 2.5em;
+    background: white;
+    color: #F72585;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    border-radius: 2.5em;
+    -webkit-border-radius: 2.5em;
+    -moz-border-radius: 2.5em;
+    -ms-border-radius: 2.5em;
+    -o-border-radius: 2.5em;
+    font-weight: 600;
+    margin-right: 4.5em;
+}
+.Timer{
+    width: 13em;
+    height: 4em;
+    border-radius: 32px;
+    background: #7209B7;
+    -webkit-border-radius: 32px;
+    -moz-border-radius: 32px;
+    -ms-border-radius: 32px;
+    -o-border-radius: 32px;
+    position: absolute;
+    z-index: -1;
+    margin-left: 1em;
+    margin-top: .5em;
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.4));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Timer > p{
+    margin-left: 5.5em;
+}
+ .Timer > svg{
+     margin-right: 1.5em;
+ }
+.InfoMess{
+    margin: 4.5em 0; user-select: none;
+}
+ .CardContainer{
+     display: flex;
+    justify-content: center;
+ }
+ .CardContainer > div > svg:hover{
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+    transition: all ease-in-out 150ms;
+    -webkit-transition: all ease-in-out 150ms;
+    -moz-transition: all ease-in-out 150ms;
+    -ms-transition: all ease-in-out 150ms;
+    -o-transition: all ease-in-out 150ms;
+    cursor: pointer;
+}
