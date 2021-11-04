@@ -1,0 +1,12 @@
+.playerUI{
+    display: flex;
+    justify-content: space-evenly;
+    width: 90vw;
+    padding: 2em;
+    border: .5em solid #fbebf2;
+    border-radius: 2em;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    -ms-border-radius: 2em;
+    -o-border-radius: 2em;
+}
