@@ -6,14 +6,14 @@
     user-select: none;
 }
 .Ball{
-    width: 2.5em;
-    height: 2.5em;
+    width: 2em;
+    height: 2em;
     background: white;
     color: #F72585;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2em;
+    font-size: 3em;
     border-radius: 2.5em;
     -webkit-border-radius: 2.5em;
     -moz-border-radius: 2.5em;
@@ -23,8 +23,8 @@
     margin-right: 4.5em;
 }
 .Timer{
-    width: 13em;
-    height: 4em;
+    width: 20em;
+    height: 5em;
     border-radius: 32px;
     background: #7209B7;
     -webkit-border-radius: 32px;
@@ -41,13 +41,16 @@
     align-items: center;
 }
 .Timer > p{
-    margin-left: 5.5em;
+    margin-left: 5em;
+    font-size: 1.75em;
+    font-weight: 600;
 }
  .Timer > svg{
      margin-right: 1.5em;
  }
 .InfoMess{
     margin: 4.5em 0; user-select: none;
+    font-size: 1.2em;
 }
  .CardContainer{
      display: flex;
