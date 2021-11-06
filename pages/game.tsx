@@ -3,7 +3,7 @@ import styles from '../styles/Game.module.css'
 const Game: NextPage = () => {
     return (
         <div className={styles.gameContainer}>
-            <div className={styles.playerUI}>
+            <div className={styles.PlayerUI}>
                 <div className={styles.PlayerCard}>
                     <svg width="150" height="221" viewBox="0 0 150 221" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d_34:14)">
@@ -23,18 +23,16 @@ const Game: NextPage = () => {
                             </filter>
                         </defs>
                     </svg>
-                    <p>Your card</p>
                 </div>
-                <div className={styles.spacer}></div>
+                <div className={styles.PlayerLine}>Your hand</div>
                 <div className={styles.PlayerNumber}>
                     <div className={styles.Ball}>22</div>
-                    <p>Your number</p>
                 </div>
             </div>
             <div className={styles.OpponentsUI}>
                 <p>Opponents Number</p>
                 <div className={styles.OpponentsNumber}>
-                 <div className={styles.Ball}>22</div>
+                 <div className={styles.OpponentsBall}>22</div>
                 </div>
             </div>
             <div className={styles.OpponentsUI}>
