@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
+import { useRouter } from 'next/dist/client/router'
 import Landingstyles from '../styles/Landing.module.css'
 const Landing: NextPage = () => {
+  const router = useRouter()
   return (
     <div>
       <svg width="186" height="158" viewBox="0 0 186 158" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,7 +102,7 @@ const Landing: NextPage = () => {
 
       <h1>Uprex</h1>
       <p>Enjoy neat web gaming expirience.</p>
-      <button className={Landingstyles.btnStart}>START</button>
+      <button className={Landingstyles.btnStart} onClick={ () => router.push('/selection')}>START</button>
     </div>
   )
 }
