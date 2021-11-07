@@ -1,6 +1,21 @@
 import type { NextPage } from 'next'
+import { useEffect } from 'react';
 import styles from '../styles/Selection.module.css'
 const Selection: NextPage = () => {
+    function Timer(time:number) {
+        let acc = 0;
+        let TIMER_1 = setInterval(()=>{
+            acc++;
+            console.log("second ",acc);
+            if(acc===time) {
+                clearInterval(TIMER_1);
+
+            }
+        },1000)
+    }
+    useEffect(()=>{
+        Timer(10);
+    })
     return (
         <div>
             <div className={styles.InfoContainer}>
