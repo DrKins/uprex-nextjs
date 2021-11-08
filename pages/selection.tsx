@@ -1,8 +1,10 @@
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/dist/client/router'
 import styles from '../styles/Selection.module.css'
+
 const Selection: NextPage = () => {
-    
+    const router = useRouter()
     let [time, setTime] = useState(0);
 
     function Timer(lock: number) {
@@ -10,7 +12,7 @@ const Selection: NextPage = () => {
             setTime(time++)
             if (time === lock) {
                 clearInterval(TIMER_1);
-                
+                router.push('/game')
             }
         }, 1000)
     }
