@@ -40,11 +40,49 @@
     justify-content: space-between;
     align-items: center;
 }
-.Timer > p{
+.unpop{
     margin-left: 5em;
     font-size: 1.75em;
     font-weight: 600;
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-duration: 1000ms;
+    animation-duration: 1000ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
 }
+    @-webkit-keyframes pulse {
+    0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+    50% {
+    -webkit-transform: scale3d(1.35, 1.35, 1.35);
+    transform: scale3d(1.35, 1.35, 1.35);
+    }
+    100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+    }
+    @keyframes pulse {
+    0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+    50% {
+    -webkit-transform: scale3d(1.35, 1.35, 1.35);
+    transform: scale3d(1.35, 1.35, 1.35);
+    }
+    100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    }
+    } 
  .Timer > svg{
      margin-right: 1.5em;
  }
