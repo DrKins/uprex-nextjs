@@ -9,6 +9,11 @@ const Selection: NextPage = () => {
 
   //one-way data binding with useState. timer variable.
   let [time, setTime] = useState(0);
+  let [selectedCard, setselectedCard] = useState(0);
+
+  function setCard(card: number) {
+    setselectedCard(card);
+  }
 
   //Function timer, passing one param - number of seconds timer will run.
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -25,7 +30,7 @@ const Selection: NextPage = () => {
   //Calling timer after component is rendered.
   useEffect(() => {
     Timer(11);
-  }, [Timer]);
+  }, []);
   return (
     <div>
       <div className={styles.InfoContainer}>
@@ -48,7 +53,11 @@ const Selection: NextPage = () => {
       </div>
       <p className={styles.InfoMess}>Select your card before time runs out.</p>
       <div className={styles.CardContainer}>
-        <div>
+        <div
+          onClick={() => {
+            setCard(0);
+          }}
+        >
           <svg
             width="150"
             height="221"
@@ -112,7 +121,11 @@ const Selection: NextPage = () => {
             </defs>
           </svg>
         </div>
-        <div>
+        <div
+          onClick={() => {
+            setCard(1);
+          }}
+        >
           <svg
             width="150"
             height="221"
