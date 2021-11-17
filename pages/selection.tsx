@@ -1,12 +1,15 @@
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/dist/client/router";
 import styles from "../styles/Selection.module.css";
+import GameProvider, { gameContext } from "../context/index";
 
 const Selection: NextPage = () => {
   //declaration of router const, using useRouter function.
   const router = useRouter();
+
+  const { userBall, setUserBall } = useContext(gameContext);
 
   //one-way data binding with useState. timer variable.
   let [time, setTime] = useState(0);
@@ -36,7 +39,7 @@ const Selection: NextPage = () => {
   return (
     <div>
       <div className={styles.InfoContainer}>
-        <div className={styles.Ball}>22</div>
+        <div className={styles.Ball}>{userBall}</div>
         <div className={styles.Timer}>
           <p className={styles.unpop}>00:{time < 10 ? "0" + time : time}</p>
           <Image
@@ -52,6 +55,8 @@ const Selection: NextPage = () => {
       <div className={styles.CardContainer}>
         <div
           onClick={() => {
+            //testing context api
+            setUserBall(Math.floor(Math.random() * 100));
             setCard(0);
           }}
         >
