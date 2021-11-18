@@ -95,3 +95,16 @@
   display: flex;
   justify-content: center;
 }
+.CardContainer > div:hover {
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+  transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  -o-transform: translateY(-10px);
+  -webkit-transition: all 250ms ease-in-out;
+  -moz-transition: all 250ms ease-in-out;
+  -ms-transition: all 250ms ease-in-out;
+  -o-transition: all 250ms ease-in-out;
+}
