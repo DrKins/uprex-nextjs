@@ -1,7 +1,11 @@
 import type { NextPage } from 'next'
 import Image from "next/image";
 import styles from "../styles/Game.module.css";
+import { gameContext } from "../context/index";
+import { useContext } from "react";
+
 const Game: NextPage = () => {
+  const { userBall } = useContext(gameContext);
   return (
     <div className={styles.gameContainer}>
       <div className={styles.PlayerUI}>
@@ -16,7 +20,7 @@ const Game: NextPage = () => {
         </div>
         <div className={styles.PlayerLine}>Your hand</div>
         <div className={styles.PlayerNumber}>
-          <div className={styles.Ball}>22</div>
+          <div className={styles.Ball}>{userBall}</div>
         </div>
       </div>
       <div className={styles.OpponentsUI}>
