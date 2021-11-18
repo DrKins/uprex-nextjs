@@ -1,6 +1,9 @@
 import type { NextPage } from "next";
 import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
+import TimerImage from "../public/timer.png";
+import CardUpImage from "../public/CardUp.png";
+import CardDownImage from "../public/CardDown.png";
 import { useRouter } from "next/dist/client/router";
 import styles from "../styles/Selection.module.css";
 import GameProvider, { gameContext } from "../context/index";
@@ -14,6 +17,10 @@ const Selection: NextPage = () => {
   //one-way data binding with useState. timer variable.
   let [time, setTime] = useState(0);
   let [selectedCard, setselectedCard] = useState(0);
+
+  function generateNumber() {
+    setUserBall(Math.floor(Math.random() * 50 + 1));
+  }
 
   function setCard(card: number) {
     setselectedCard(card);
@@ -33,6 +40,7 @@ const Selection: NextPage = () => {
 
   //Calling timer after component is rendered.
   useEffect(() => {
+    generateNumber();
     Timer(11);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -43,11 +51,12 @@ const Selection: NextPage = () => {
         <div className={styles.Timer}>
           <p className={styles.unpop}>00:{time < 10 ? "0" + time : time}</p>
           <Image
-            src="/timer.png"
+            src={TimerImage}
             alt="timer"
             height={25}
             width={25}
             layout="fixed"
+            priority
           />
         </div>
       </div>
@@ -55,17 +64,16 @@ const Selection: NextPage = () => {
       <div className={styles.CardContainer}>
         <div
           onClick={() => {
-            //testing context api
-            setUserBall(Math.floor(Math.random() * 100));
             setCard(0);
           }}
         >
           <Image
-            src="/CardDown.png"
+            src={CardDownImage}
             alt="Card down"
             height={221}
             width={150}
             layout="fixed"
+            priority
           />
         </div>
         <div
@@ -74,11 +82,12 @@ const Selection: NextPage = () => {
           }}
         >
           <Image
-            src="/CardUp.png"
+            src={CardUpImage}
             alt="Card up"
             height={221}
             width={150}
             layout="fixed"
+            priority
           />
         </div>
       </div>
