@@ -6,7 +6,7 @@ import CardUpImage from "../public/CardUp.png";
 import CardDownImage from "../public/CardDown.png";
 import { useRouter } from "next/dist/client/router";
 import styles from "../styles/Selection.module.css";
-import GameProvider, { gameContext } from "../context/index";
+import { gameContext } from "../context/index";
 
 const Selection: NextPage = () => {
   //declaration of router const, using useRouter function.
