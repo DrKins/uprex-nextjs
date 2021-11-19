@@ -12,18 +12,23 @@ const Selection: NextPage = () => {
   //declaration of router const, using useRouter function.
   const router = useRouter();
 
-  const { userBall, setUserBall } = useContext(gameContext);
+  const {
+    userBall,
+    setUserBall,
+    setUserCard,
+    setOpponentBall,
+    setOpponentCard,
+  } = useContext(gameContext);
 
   //one-way data binding with useState. timer variable.
   let [time, setTime] = useState(0);
   let [selectedCard, setselectedCard] = useState(0);
 
-  function generateNumber() {
+  function generator() {
     setUserBall(Math.floor(Math.random() * 50 + 1));
-  }
-
-  function setCard(card: number) {
-    setselectedCard(card);
+    setOpponentBall(Math.floor(Math.random() * 50 + 1));
+    setOpponentCard(Math.random() >= 0.5 ? 1 : 0);
+    setUserCard(Math.random() >= 0.5 ? 1 : 0);
   }
 
   //Function timer, passing one param - number of seconds timer will run.
@@ -40,7 +45,7 @@ const Selection: NextPage = () => {
 
   //Calling timer after component is rendered.
   useEffect(() => {
-    generateNumber();
+    generator();
     Timer(11);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -64,7 +69,7 @@ const Selection: NextPage = () => {
       <div className={styles.CardContainer}>
         <div
           onClick={() => {
-            setCard(0);
+            setUserCard(0);
           }}
         >
           <Image
@@ -78,7 +83,7 @@ const Selection: NextPage = () => {
         </div>
         <div
           onClick={() => {
-            setCard(1);
+            setUserCard(1);
           }}
         >
           <Image
