@@ -1,0 +1,32 @@
+.rounds{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2em;
+}
+.rounds > div{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.won{
+    background: rgb(51, 200, 13);
+}
+.draw{
+    background: rgb(240, 131, 53);
+}
+.lost{
+    background: crimson;
+}
+.default{
+    background: white;
+}
+.mainText{
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin: .5em 0;
+}
