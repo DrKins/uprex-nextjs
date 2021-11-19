@@ -16,6 +16,7 @@ const Game: NextPage = () => {
             height={75}
             width={50}
             layout="fixed"
+            priority={true}
           />
         </div>
         <div className={styles.PlayerLine}>Your hand</div>
@@ -38,6 +39,7 @@ const Game: NextPage = () => {
             height={221}
             width={150}
             layout="fixed"
+            priority={true}
           />
         </div>
       </div>
