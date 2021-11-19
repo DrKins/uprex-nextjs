@@ -2,9 +2,10 @@ import { NextPage } from "next";
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/dist/client/router";
 import { gameContext } from "../context";
+import styles from "../styles/Finish.module.css";
 
 const Finish: NextPage = () => {
-  const [winner, setWinner] = useState("It's draw game.");
+  const [winner, setWinner] = useState("trolo");
   const [last, setLast] = useState(false);
   const { rounds, updateRounds } = useContext(gameContext);
   const router = useRouter();
@@ -16,10 +17,6 @@ const Finish: NextPage = () => {
       if (time === -1) {
         //three rounds per game, game over
         if (rounds.length === 3) {
-          //sum of array to see winner function
-          let x = rounds.reduce((a, b) => a + b, 0);
-          if (x < 0) setWinner("You lost game.");
-          else if (x > 0) setWinner("You win game.");
           updateRounds(0, true);
           clearInterval(TIMER_1);
           router.push("/");
@@ -31,24 +28,69 @@ const Finish: NextPage = () => {
     }, 1000);
   }
   useEffect(() => {
-    if (rounds.length === 3) setLast(true);
+    if (rounds.length === 3) {
+      setLast(true);
+      //sum of array to see winner function
+      let x = rounds.reduce((a, b) => a + b, 0);
+      console.log(x);
+      if (x < 0) setWinner("GAME LOST");
+      else if (x > 0) setWinner("GAME WON");
+      else setWinner("GAME DRAW");
+    }
     console.log(rounds);
     Timer();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
-      <div>Round finished.</div>
-      <h2>
+      <div className={styles.rounds}>
+        <div
+          className={
+            rounds[0] > 0
+              ? styles.won
+              : rounds[0] < 0
+              ? styles.lost
+              : rounds[0] === 0
+              ? styles.draw
+              : styles.default
+          }
+        ></div>
+        <div
+          className={
+            rounds[1] > 0
+              ? styles.won
+              : rounds[1] < 0
+              ? styles.lost
+              : rounds[1] === 0
+              ? styles.draw
+              : styles.default
+          }
+        ></div>
+        <div
+          className={
+            rounds[2] > 0
+              ? styles.won
+              : rounds[2] < 0
+              ? styles.lost
+              : rounds[2] === 0
+              ? styles.draw
+              : styles.default
+          }
+        ></div>
+      </div>
+      <div>Round has finished.</div>
+      <p className={styles.mainText}>
         {last
           ? winner
           : rounds[rounds.length - 1] > 0
-          ? "You win this round"
+          ? "ROUND WON"
           : rounds[rounds.length - 1] < 0
-          ? "You lost this round"
-          : "It's draw round"}
-      </h2>
-      <div>Next round starts in {time}</div>
+          ? "ROUND LOST"
+          : "ROUND DRAW"}
+      </p>
+      <div>
+        {last ? "Redirecting to main manu in" : "Next round starts in"} {time}
+      </div>
     </>
   );
 };
