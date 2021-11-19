@@ -46,7 +46,7 @@ const Selection: NextPage = () => {
   //Calling timer after component is rendered.
   useEffect(() => {
     generator();
-    Timer(11);
+    Timer(6);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
