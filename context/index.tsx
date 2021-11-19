@@ -16,8 +16,8 @@ type gameContextType = {
 const gameContextDefaultValues: gameContextType = {
   userBall: 0,
   userCard: 0,
-  opponentBall: 0,
-  opponentCard: 0,
+  opponentBall: 32,
+  opponentCard: 1,
   rounds: [],
   setUserBall: (newUserBall: number) => {},
   setOpponentBall: (newOpponentBall: number) => {},
