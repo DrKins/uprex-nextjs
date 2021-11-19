@@ -6,12 +6,32 @@ import { useContext, useEffect } from "react";
 import { useRouter } from "next/dist/client/router";
 
 const Game: NextPage = () => {
-  const { userBall, userCard, opponentBall, opponentCard } =
-    useContext(gameContext);
+  const {
+    userBall,
+    userCard,
+    opponentBall,
+    opponentCard,
+    updateRounds,
+    rounds,
+  } = useContext(gameContext);
   const router = useRouter();
+
+  function gameWinner() {
+    if (userBall === opponentBall) updateRounds(0, false);
+    else if (userBall > opponentBall) {
+      if (opponentCard === 1 && userCard === 1) updateRounds(-1, false);
+      else if (opponentCard === 0 && userCard === 0) updateRounds(1, false);
+      else updateRounds(0, false);
+    } else {
+      if (opponentCard === 0 && userCard === 0) updateRounds(-1, false);
+      else if (opponentCard === 1 && userCard === 1) updateRounds(1, false);
+      else updateRounds(0, false);
+    }
+  }
 
   useEffect(() => {
     setTimeout(() => {
+      gameWinner();
       router.push("/finish");
     }, 5000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
