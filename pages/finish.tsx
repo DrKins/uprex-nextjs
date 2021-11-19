@@ -16,6 +16,7 @@ const Finish: NextPage = () => {
   }
   useEffect(() => {
     Timer();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
