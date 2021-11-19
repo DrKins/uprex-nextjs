@@ -2,11 +2,19 @@ import type { NextPage } from 'next'
 import Image from "next/image";
 import styles from "../styles/Game.module.css";
 import { gameContext } from "../context/index";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useRouter } from "next/dist/client/router";
 
 const Game: NextPage = () => {
   const { userBall, userCard, opponentBall, opponentCard } =
     useContext(gameContext);
+  const router = useRouter();
+
+  useEffect(() => {
+    setTimeout(() => {
+      router.push("/finish");
+    }, 5000);
+  }, []);
   return (
     <div className={styles.gameContainer}>
       <div className={styles.PlayerUI}>
