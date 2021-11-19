@@ -5,12 +5,12 @@ type gameContextType = {
   userCard: Number;
   opponentBall: Number;
   opponentCard: Number;
-  rounds: Number[];
+  rounds: number[];
   setUserBall: (newUserBall: number) => void;
   setUserCard: (newUserCard: number) => void;
   setOpponentBall: (newOpponentBall: number) => void;
   setOpponentCard: (newOpponentCard: number) => void;
-  updateRounds: (addRound: number) => void;
+  updateRounds: (addRound: number, deletion: Boolean) => void;
 };
 
 const gameContextDefaultValues: gameContextType = {
@@ -23,7 +23,7 @@ const gameContextDefaultValues: gameContextType = {
   setOpponentBall: (newOpponentBall: number) => {},
   setUserCard: (newUserCard: number) => {},
   setOpponentCard: (newOpponentCard: number) => {},
-  updateRounds: (addRound: number) => {},
+  updateRounds: (addRound: number, deletion: Boolean) => {},
 };
 
 export const gameContext = createContext<gameContextType>(
@@ -52,7 +52,10 @@ const GameProvider: FC = ({ children }) => {
   const setOpponentCard = (newOpponentCard: number) =>
     setopponentCard(newOpponentCard);
 
-  const updateRounds = (addRound: number) => setRounds([...rounds, addRound]);
+  const updateRounds = (addRound: number, deletion: Boolean) => {
+    if (!deletion) setRounds([...rounds, addRound]);
+    else setRounds([]);
+  };
   return (
     <gameContext.Provider
       value={{
