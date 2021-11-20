@@ -17,9 +17,9 @@ const Finish: NextPage = () => {
       if (time === -1) {
         //three rounds per game, game over
         if (rounds.length === 3) {
-          updateRounds(0, true);
           clearInterval(TIMER_1);
           router.push("/");
+          updateRounds(0, true);
         } else {
           clearInterval(TIMER_1);
           router.push("/selection");
@@ -32,12 +32,10 @@ const Finish: NextPage = () => {
       setLast(true);
       //sum of array to see winner function
       let x = rounds.reduce((a, b) => a + b, 0);
-      console.log(x);
       if (x < 0) setWinner("GAME LOST");
       else if (x > 0) setWinner("GAME WON");
       else setWinner("GAME DRAW");
     }
-    console.log(rounds);
     Timer();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -89,7 +87,7 @@ const Finish: NextPage = () => {
           : "ROUND DRAW"}
       </p>
       <div>
-        {last ? "Redirecting to main manu in" : "Next round starts in"} {time}
+        {last ? "Redirecting to start in" : "Next round starts in"} {time}
       </div>
     </>
   );

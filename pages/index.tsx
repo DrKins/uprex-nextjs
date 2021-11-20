@@ -13,7 +13,7 @@ const Landing: NextPage = () => {
         width={186}
         height={158}
         layout="fixed"
-        priority
+        loading="eager"
       />
       <h1>Uprex</h1>
       <p>Enjoy neat web gaming expirience.</p>

@@ -61,7 +61,7 @@ const Selection: NextPage = () => {
             height={25}
             width={25}
             layout="fixed"
-            priority={true}
+            loading="eager"
           />
         </div>
       </div>
@@ -78,7 +78,7 @@ const Selection: NextPage = () => {
             height={221}
             width={150}
             layout="fixed"
-            priority={true}
+            loading="eager"
           />
         </div>
         <div
@@ -92,7 +92,7 @@ const Selection: NextPage = () => {
             height={221}
             width={150}
             layout="fixed"
-            priority
+            loading="eager"
           />
         </div>
       </div>
