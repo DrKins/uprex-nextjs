@@ -11,7 +11,6 @@ import { gameContext } from "../context/index";
 const Selection: NextPage = () => {
   //declaration of router const, using useRouter function.
   const router = useRouter();
-
   const {
     userBall,
     setUserBall,
@@ -24,6 +23,7 @@ const Selection: NextPage = () => {
   let [time, setTime] = useState(0);
   let [selectedCard, setselectedCard] = useState(0);
 
+  //generating values for game
   function generator() {
     setUserBall(Math.floor(Math.random() * 50 + 1));
     setOpponentBall(Math.floor(Math.random() * 50 + 1));
@@ -61,7 +61,7 @@ const Selection: NextPage = () => {
             height={25}
             width={25}
             layout="fixed"
-            loading="eager"
+            priority={true}
           />
         </div>
       </div>
@@ -78,7 +78,7 @@ const Selection: NextPage = () => {
             height={221}
             width={150}
             layout="fixed"
-            loading="eager"
+            priority={true}
           />
         </div>
         <div
@@ -92,12 +92,12 @@ const Selection: NextPage = () => {
             height={221}
             width={150}
             layout="fixed"
-            loading="eager"
+            priority={true}
           />
         </div>
       </div>
     </div>
   );
-};
+};;
 
 export default Selection;

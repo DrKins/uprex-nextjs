@@ -47,7 +47,7 @@ const Game: NextPage = () => {
               height={75}
               width={50}
               layout="fixed"
-              loading="eager"
+              priority={true}
             />
           ) : (
             <Image
@@ -56,7 +56,7 @@ const Game: NextPage = () => {
               height={75}
               width={50}
               layout="fixed"
-              loading="eager"
+              priority={true}
             />
           )}
         </div>
@@ -81,7 +81,7 @@ const Game: NextPage = () => {
               height={221}
               width={150}
               layout="fixed"
-              loading="eager"
+              priority={true}
             />
           ) : (
             <Image
@@ -90,7 +90,7 @@ const Game: NextPage = () => {
               height={221}
               width={150}
               layout="fixed"
-              loading="eager"
+              priority={true}
             />
           )}
         </div>
