@@ -6,6 +6,8 @@ type gameContextType = {
   opponentBall: Number;
   opponentCard: Number;
   rounds: number[];
+  controller: number;
+  updateController: (newState: number) => void;
   setUserBall: (newUserBall: number) => void;
   setUserCard: (newUserCard: number) => void;
   setOpponentBall: (newOpponentBall: number) => void;
@@ -19,6 +21,8 @@ const gameContextDefaultValues: gameContextType = {
   opponentBall: 32,
   opponentCard: 1,
   rounds: [],
+  controller: 0,
+  updateController: (newState: number) => {},
   setUserBall: (newUserBall: number) => {},
   setOpponentBall: (newOpponentBall: number) => {},
   setUserCard: (newUserCard: number) => {},
@@ -44,6 +48,9 @@ const GameProvider: FC = ({ children }) => {
     gameContextDefaultValues.opponentCard
   );
   const [rounds, setRounds] = useState(gameContextDefaultValues.rounds);
+  const [controller, setController] = useState(
+    gameContextDefaultValues.controller
+  );
 
   const setUserBall = (newUserBall: number) => setuserBall(newUserBall);
   const setUserCard = (newUserCard: number) => setuserCard(newUserCard);
@@ -56,14 +63,17 @@ const GameProvider: FC = ({ children }) => {
     if (!deletion) setRounds([...rounds, addRound]);
     else setRounds([]);
   };
+  const updateController = (newState: number) => setController(newState);
   return (
     <gameContext.Provider
       value={{
         userBall,
         userCard,
         rounds,
+        controller,
         opponentBall,
         opponentCard,
+        updateController,
         updateRounds,
         setOpponentBall,
         setOpponentCard,
