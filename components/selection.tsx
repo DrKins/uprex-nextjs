@@ -106,7 +106,6 @@ const Selection: NextPage = () => {
                 onClick={() => {
                   setUserCard(1);
                   setselectedCard(true);
-                  console.log("Clicked on DOWN CARD");
                 }}
               >
                 <Image
@@ -122,7 +121,6 @@ const Selection: NextPage = () => {
                 onClick={() => {
                   setUserCard(2);
                   setselectedCard(true);
-                  console.log("Clicked on UP CARD");
                 }}
               >
                 <Image

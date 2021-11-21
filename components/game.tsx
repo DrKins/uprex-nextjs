@@ -20,12 +20,10 @@ const Game: NextPage = () => {
   function gameWinner() {
     if (userBall === opponentBall) updateRounds(0, false);
     else if (userBall > opponentBall) {
-      console.log(userCard, opponentCard);
       if (opponentCard === 2 && userCard === 2) updateRounds(-1, false);
       else if (opponentCard === 1 && userCard === 1) updateRounds(1, false);
       else updateRounds(0, false);
     } else {
-      console.log(userCard, opponentCard);
       if (opponentCard === 1 && userCard === 1) updateRounds(-1, false);
       else if (opponentCard === 2 && userCard === 2) updateRounds(1, false);
       else updateRounds(0, false);
