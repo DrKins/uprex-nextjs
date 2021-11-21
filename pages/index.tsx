@@ -8,6 +8,7 @@ import Game from "../components/game";
 import Finish from "../components/finish";
 import { gameContext } from "../context";
 import { useContext } from "react";
+import "animate.css";
 const Landing: NextPage = () => {
   const { controller, updateController } = useContext(gameContext);
   function main() {
@@ -23,7 +24,7 @@ const Landing: NextPage = () => {
               layout="fixed"
               priority={true}
             />
-            <h1>Uprex</h1>
+            <h1 className="animate__animated animate__zoomIn">Uprex</h1>
             <p>Enjoy neat web gaming expirience.</p>
             <button
               className={Landingstyles.btnStart}

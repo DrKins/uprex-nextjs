@@ -13,19 +13,21 @@ const Game: NextPage = () => {
     opponentCard,
     updateRounds,
     updateController,
+    setUserCard,
     rounds,
   } = useContext(gameContext);
-  const router = useRouter();
 
   function gameWinner() {
     if (userBall === opponentBall) updateRounds(0, false);
     else if (userBall > opponentBall) {
-      if (opponentCard === 1 && userCard === 1) updateRounds(-1, false);
-      else if (opponentCard === 0 && userCard === 0) updateRounds(1, false);
+      console.log(userCard, opponentCard);
+      if (opponentCard === 2 && userCard === 2) updateRounds(-1, false);
+      else if (opponentCard === 1 && userCard === 1) updateRounds(1, false);
       else updateRounds(0, false);
     } else {
-      if (opponentCard === 0 && userCard === 0) updateRounds(-1, false);
-      else if (opponentCard === 1 && userCard === 1) updateRounds(1, false);
+      console.log(userCard, opponentCard);
+      if (opponentCard === 1 && userCard === 1) updateRounds(-1, false);
+      else if (opponentCard === 2 && userCard === 2) updateRounds(1, false);
       else updateRounds(0, false);
     }
   }
@@ -37,11 +39,12 @@ const Game: NextPage = () => {
     }, 5000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <div className={styles.gameContainer}>
       <div className={styles.PlayerUI}>
         <div className={styles.PlayerCard}>
-          {userCard > 0 ? (
+          {userCard === 2 ? (
             <Image
               src="/CardUp.png"
               alt="Card up"
@@ -50,7 +53,7 @@ const Game: NextPage = () => {
               layout="fixed"
               priority={true}
             />
-          ) : (
+          ) : userCard === 1 ? (
             <Image
               src="/CardDown.png"
               alt="Card down"
@@ -59,7 +62,7 @@ const Game: NextPage = () => {
               layout="fixed"
               priority={true}
             />
-          )}
+          ) : null}
         </div>
         <div className={styles.PlayerLine}>Your hand</div>
         <div className={styles.PlayerNumber}>
@@ -75,7 +78,7 @@ const Game: NextPage = () => {
       <div className={styles.OpponentsUI}>
         <p>Opponents Play</p>
         <div className={styles.OpponentsCard}>
-          {opponentCard > 0 ? (
+          {opponentCard === 2 ? (
             <Image
               src="/CardUp.png"
               alt="Card up"
@@ -84,7 +87,7 @@ const Game: NextPage = () => {
               layout="fixed"
               priority={true}
             />
-          ) : (
+          ) : opponentCard === 1 ? (
             <Image
               src="/CardDown.png"
               alt="Card down"
@@ -93,7 +96,7 @@ const Game: NextPage = () => {
               layout="fixed"
               priority={true}
             />
-          )}
+          ) : null}
         </div>
       </div>
     </div>

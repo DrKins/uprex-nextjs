@@ -18,8 +18,8 @@ type gameContextType = {
 const gameContextDefaultValues: gameContextType = {
   userBall: 0,
   userCard: 0,
-  opponentBall: 32,
-  opponentCard: 1,
+  opponentBall: 0,
+  opponentCard: 0,
   rounds: [],
   controller: 0,
   updateController: (newState: number) => {},

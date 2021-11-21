@@ -7,7 +7,15 @@ import styles from "../styles/Finish.module.css";
 const Finish: NextPage = () => {
   const [winner, setWinner] = useState("trolo");
   const [last, setLast] = useState(false);
-  const { rounds, updateRounds, updateController } = useContext(gameContext);
+  const {
+    rounds,
+    updateRounds,
+    updateController,
+    setUserCard,
+    userCard,
+    opponentCard,
+    setOpponentCard,
+  } = useContext(gameContext);
   const router = useRouter();
   let [time, setTime] = useState(5);
 
@@ -18,10 +26,14 @@ const Finish: NextPage = () => {
         //three rounds per game, game over
         if (rounds.length === 3) {
           clearInterval(TIMER_1);
+          setUserCard(0);
+          setOpponentCard(0);
           updateController(0);
           updateRounds(0, true);
         } else {
           clearInterval(TIMER_1);
+          setUserCard(0);
+          setOpponentCard(0);
           updateController(1);
         }
       }
